@@ -20,7 +20,7 @@ router.get('/', function (req, res) {
 
 router.route('/register').post(registerUser);
 router.route('/login').post(loginUser);
-// router.route('/logout').post(isaunthenticated,logout);
+router.route('/logout').get(logout);
 // router.route('/data').get(isaunthenticated,data);
 // router.route('/getdata').get(isaunthenticated,getData);
 // router.route('/adddata').put(isaunthenticated,addData);
