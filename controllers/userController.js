@@ -69,6 +69,8 @@ exports.logout = catchAsyncError(async (req, res, next) => {
     res.cookie("token", null, {
         expires: new Date(Date.now()),
         httpOnly: true,
+        secure: true,
+        sameSite: "none",
     });
 
     res.status(200).json({
@@ -133,7 +135,7 @@ exports.initRegister = catchAsyncError(async (req, res) => {
             email,
             challenge: options.challenge,
         }),
-        { httpOnly: true, maxAge: 60000, secure: true }
+        { httpOnly: true, maxAge: 60000, secure: true, sameSite: "none" }
     );
 
     res.json(options);
@@ -246,7 +248,7 @@ exports.initAuth = catchAsyncError(async (req, res) => {
             userId: user._id,
             challenge: options.challenge,
         }),
-        { httpOnly: true, maxAge: 60000, secure: true }
+        { httpOnly: true, maxAge: 60000, secure: true, sameSite: "none" }
     );
 
     res.json(options);
