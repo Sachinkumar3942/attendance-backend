@@ -12,8 +12,8 @@ const {
     verifyAuthenticationResponse,
 } = require("@simplewebauthn/server");
 
-const CLIENT_URL = "http://localhost:3000";
-const RP_ID = "localhost";
+const CLIENT_URL = process.env.CLIENT_URL || "https://attendance-frontend-sage.vercel.app";
+const RP_ID = process.env.RP_ID || "attendance-frontend-sage.vercel.app";
 
 // 📌 Traditional Registration (Email + Password)
 exports.registerUser = catchAsyncError(async (req, res, next) => {
